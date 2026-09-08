@@ -39,20 +39,20 @@ export function Van() {
           <text
             x="330"
             y="184"
-            fontSize="15"
+            fontSize="14"
             fill="#ffffff"
             style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.1em" }}
           >
-            EMERGENCY PLUMBING · BOILER REPAIRS · HEATING
+            EMERGENCY PLUMBING · BOILER REPAIRS
           </text>
           <text
             x="330"
             y="202"
-            fontSize="15"
+            fontSize="14"
             fill="var(--color-accent)"
             style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.1em" }}
           >
-            GAS SAFE REGISTERED · CARDIFF &amp; SURROUNDING AREAS
+            GAS SAFE REGISTERED · HEATING ENGINEERS
           </text>
 
           {/* phone block */}
@@ -99,7 +99,7 @@ export function Van() {
         </svg>
       </div>
 
-      <div className="road-move mt-1 h-0.5 w-full" aria-hidden="true" />
+      <div className="road-move mt-1 h-0.5 w-full opacity-30" aria-hidden="true" />
 
       <p className="pin-drop mt-3 inline-flex items-center gap-2 border border-ink bg-paper px-3 py-1.5">
         <span className="size-2 bg-accent" aria-hidden="true" />

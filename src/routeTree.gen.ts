@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AreasWeCoverRouteImport } from './routes/areas-we-cover'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as LegalSlugRouteImport } from './routes/legal.$slug'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
@@ -30,6 +31,11 @@ const AreasWeCoverRoute = AreasWeCoverRouteImport.update({
   path: '/areas-we-cover',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LegalSlugRoute = LegalSlugRouteImport.update({
   id: '/legal/$slug',
   path: '/legal/$slug',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/areas-we-cover': typeof AreasWeCoverRoute
+  '/contact': typeof ContactRoute
   '/legal/$slug': typeof LegalSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/areas-we-cover': typeof AreasWeCoverRoute
+  '/contact': typeof ContactRoute
   '/legal/$slug': typeof LegalSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -60,20 +68,33 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/areas-we-cover': typeof AreasWeCoverRoute
+  '/contact': typeof ContactRoute
   '/legal/$slug': typeof LegalSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/areas-we-cover' | '/legal/$slug' | '/services/$slug'
+    | '/'
+    | '/about'
+    | '/areas-we-cover'
+    | '/contact'
+    | '/legal/$slug'
+    | '/services/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/areas-we-cover' | '/legal/$slug' | '/services/$slug'
+  to:
+    | '/'
+    | '/about'
+    | '/areas-we-cover'
+    | '/contact'
+    | '/legal/$slug'
+    | '/services/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/areas-we-cover'
+    | '/contact'
     | '/legal/$slug'
     | '/services/$slug'
   fileRoutesById: FileRoutesById
@@ -82,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AreasWeCoverRoute: typeof AreasWeCoverRoute
+  ContactRoute: typeof ContactRoute
   LegalSlugRoute: typeof LegalSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
 }
@@ -109,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AreasWeCoverRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/legal/$slug': {
       id: '/legal/$slug'
       path: '/legal/$slug'
@@ -130,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AreasWeCoverRoute: AreasWeCoverRoute,
+  ContactRoute: ContactRoute,
   LegalSlugRoute: LegalSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
 }

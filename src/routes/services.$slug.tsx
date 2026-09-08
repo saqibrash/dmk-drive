@@ -4,6 +4,7 @@ import { Footer } from "@/components/site/Footer";
 import { MobileCTABar } from "@/components/site/MobileCTABar";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
+import heroPhoto from "@/assets/photo-boiler-engineer.jpg";
 import { areas, business, services } from "@/lib/business";
 
 export const Route = createFileRoute("/services/$slug")({

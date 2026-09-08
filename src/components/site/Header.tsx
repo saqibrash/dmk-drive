@@ -82,7 +82,7 @@ export function Header() {
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
               aria-label="Toggle navigation menu"
-              className="flex size-10 flex-col items-center justify-center gap-1.5 rounded-full bg-panel transition-colors hover:bg-accent-soft lg:hidden"
+              className="flex size-10 flex-col items-center justify-center gap-1.5 rounded-xl border border-accent-deep/25 bg-accent-pale transition-colors hover:bg-accent-soft lg:hidden"
             >
               <span className={`h-0.5 w-5 bg-ink transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
               <span className={`h-0.5 w-5 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />

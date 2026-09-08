@@ -26,7 +26,7 @@ export function Header() {
       </div>
 
       <div
-        className={`warm-wash-soft border-b border-line transition-shadow duration-300 ${
+        className={`nav-wash border-b border-line transition-shadow duration-300 ${
           scrolled ? "shadow-[0_6px_20px_-16px_rgba(23,23,23,0.5)]" : ""
         }`}
       >
@@ -35,7 +35,11 @@ export function Header() {
             scrolled ? "py-2.5" : "py-4"
           }`}
         >
-          <Link to="/" className="shrink-0" aria-label={`${business.name} home`}>
+          <Link
+            to="/"
+            className="logo-backdrop shrink-0 rounded-xl px-3 py-1.5"
+            aria-label={`${business.name} home`}
+          >
             <img
               src={logo}
               alt="DMK Plumbing & Heating logo"
@@ -44,6 +48,7 @@ export function Header() {
               className={`w-auto transition-all duration-300 ${scrolled ? "h-11" : "h-14 md:h-16"}`}
             />
           </Link>
+
 
           <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
             {navItems.map((item) => (

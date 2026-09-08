@@ -56,24 +56,16 @@ export function Van() {
           </text>
 
           {/* phone block */}
-          <rect x="540" y="94" width="112" height="46" fill="var(--color-accent)" />
+          <rect x="510" y="94" width="160" height="40" rx="2" fill="var(--color-accent)" />
           <text
-            x="552"
-            y="126"
-            fontSize="20"
+            x="590"
+            y="121"
+            fontSize="22"
             fill="#101010"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}
+            textAnchor="middle"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
           >
-            07868
-          </text>
-          <text
-            x="540"
-            y="160"
-            fontSize="20"
-            fill="#ffffff"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}
-          >
-            470 791
+            07868 470 791
           </text>
 
           {/* wheel arches */}

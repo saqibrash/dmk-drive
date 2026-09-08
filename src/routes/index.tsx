@@ -55,7 +55,7 @@ const btnOutline =
 const kicker = "font-mono text-[15px] tracking-[0.22em] text-muted uppercase";
 
 function Home() {
-  const featured = services[0];
+  const featured = services[0]!;
   const rest = services.slice(1);
 
   return (

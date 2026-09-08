@@ -115,9 +115,10 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(-26deg);
+    transform: rotate(24deg);
   }
 }
+
 @keyframes fadeStep {
   0% {
     opacity: 0;

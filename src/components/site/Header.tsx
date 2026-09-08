@@ -73,7 +73,7 @@ export function Header() {
             </a>
             <a
               href={business.phoneHref}
-              className="rounded-full border border-accent-deep/40 bg-accent-soft px-5 py-2.5 font-display text-[15px] font-semibold tracking-[0.06em] text-ink uppercase shadow-[0_2px_10px_-4px_rgba(230,184,0,0.6)] transition-all duration-200 hover:bg-accent active:scale-[0.97] md:hidden"
+              className="rounded-xl border border-accent-deep/40 bg-accent-soft px-5 py-2.5 font-display text-[15px] font-semibold tracking-[0.06em] text-ink uppercase shadow-[0_2px_8px_-3px_rgba(23,23,23,0.35)] transition-all duration-200 hover:bg-accent active:scale-[0.97] md:hidden"
             >
               Call
             </a>

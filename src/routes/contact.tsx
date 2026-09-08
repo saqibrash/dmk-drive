@@ -30,13 +30,13 @@ function ContactPage() {
     <div className="min-h-screen overflow-x-hidden">
       <Header />
       <main>
-        <section className="aurora relative">
+        <section className="relative border-b border-line">
           <div className="mx-auto max-w-6xl px-4 pt-10 pb-8">
-            <p className="font-mono text-[10px] tracking-[0.16em] text-muted uppercase">Get in touch</p>
+            <p className="font-mono text-[14px] tracking-[0.16em] text-muted uppercase">Get in touch</p>
             <h1 className="mt-3 max-w-[18ch] font-display text-[34px] leading-[1.03] font-bold tracking-tight md:text-[52px]">
               Contact DMK Plumbing &amp; Heating
             </h1>
-            <p className="mt-4 max-w-[50ch] text-[15px] text-muted">
+            <p className="mt-4 max-w-[50ch] text-[17px] text-muted">
               Fastest way to reach us is a phone call. For anything non-urgent, WhatsApp or the form below is fine.
             </p>
           </div>
@@ -47,28 +47,28 @@ function ContactPage() {
             <Reveal className="grid content-start gap-2">
               <a
                 href={business.phoneHref}
-                className="rounded-xl bg-accent px-4 py-4 text-center font-display text-[16px] font-bold text-paper ring-1 ring-black/5"
+                className="bg-accent px-4 py-4 text-center font-display text-[18px] font-bold text-ink"
               >
                 Call {business.phoneDisplay}
               </a>
               <a
                 href={business.whatsapp}
-                className="flex items-center justify-center gap-2 rounded-xl bg-wa/15 px-4 py-3.5 text-[14px] font-medium ring-1 ring-wa/40"
+                className="flex items-center justify-center gap-2 bg-wa/15 px-4 py-3.5 text-[16px] font-medium ring-1 ring-wa/40"
               >
-                <span className="size-2 rounded-full bg-wa" aria-hidden="true" />
+                <span className="size-2 bg-wa" aria-hidden="true" />
                 WhatsApp Us
               </a>
               <a
                 href={`mailto:${business.email}`}
-                className="rounded-xl border border-line bg-panel/50 px-4 py-3.5 text-center text-[14px] font-medium"
+                className="border border-line bg-panel px-4 py-3.5 text-center text-[16px] font-medium"
               >
                 {business.email}
               </a>
-              <p className="mt-2 font-mono text-[11px] text-muted">
+              <p className="mt-2 font-mono text-[14px] text-muted">
                 Serving Cardiff &amp; surrounding areas · Gas Safe registered
               </p>
             </Reveal>
-            <Reveal delay={80} className="glass rounded-2xl p-5 ring-1 ring-line/70">
+            <Reveal delay={80} className="border border-line bg-paper-2 p-5">
               <h2 className="font-display text-[18px] font-bold tracking-tight">Send an enquiry</h2>
               <div className="mt-4">
                 <QuoteForm />

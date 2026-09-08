@@ -53,35 +53,46 @@ function ServicePage() {
 
       <main>
         <section className="relative border-b border-line">
-          <div className="mx-auto max-w-6xl px-4 pt-10 pb-8">
-            <p className="font-mono text-[14px] tracking-[0.16em] text-muted uppercase">
-              {service.n} · Cardiff &amp; surrounding areas
-            </p>
-            <h1 className="mt-3 max-w-[18ch] font-display text-[34px] leading-[1.03] font-bold tracking-tight md:text-[52px]">
-              {service.h1}
-            </h1>
-            <p className="mt-4 max-w-[52ch] text-[17px] text-muted md:text-[19px]">{service.intro}</p>
-            <div className="mt-6 grid max-w-lg grid-cols-2 gap-2">
-              <a
-                href={business.phoneHref}
-                className="col-span-2 bg-accent px-4 py-3.5 text-center font-display text-[17px] font-bold text-ink"
-              >
-                CALL NOW — {business.phoneDisplay}
-              </a>
-              <a
-                href={business.whatsapp}
-                className="flex items-center justify-center gap-2 bg-wa/15 px-4 py-3 text-[16px] font-medium ring-1 ring-wa/40"
-              >
-                <span className="size-2 bg-wa" aria-hidden="true" />
-                WhatsApp Us
-              </a>
-              <a
-                href="#quote"
-                className="flex items-center justify-center border border-line bg-panel px-4 py-3 text-[16px] font-medium"
-              >
-                Get a Quote
-              </a>
+          <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 pt-10 pb-10 md:px-6 lg:grid-cols-[1.1fr_1fr]">
+            <div>
+              <p className="font-mono text-[15px] tracking-[0.22em] text-muted uppercase">
+                {service.n} · Cardiff &amp; surrounding areas
+              </p>
+              <h1 className="mt-3 max-w-[18ch] font-display text-[36px] leading-[1.05] font-semibold md:text-[52px]">
+                {service.h1}
+              </h1>
+              <div className="mt-4 h-1 w-20 bg-accent" aria-hidden="true" />
+              <p className="mt-5 max-w-[50ch] text-[17px] leading-relaxed text-muted">{service.intro}</p>
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                <a
+                  href={business.phoneHref}
+                  className="inline-flex items-center justify-center bg-accent px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-ink uppercase hover:bg-accent-deep"
+                >
+                  Call now — {business.phoneDisplay}
+                </a>
+                <a
+                  href={business.whatsapp}
+                  className="inline-flex items-center justify-center bg-ink px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-paper uppercase"
+                >
+                  WhatsApp us
+                </a>
+                <a
+                  href="#quote"
+                  className="inline-flex items-center justify-center border border-ink px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-ink uppercase hover:bg-ink hover:text-paper"
+                >
+                  Request a quote
+                </a>
+              </div>
             </div>
+            <img
+              src={heroPhoto}
+              alt={`${service.title} in Cardiff by DMK Plumbing & Heating`}
+              width={1280}
+              height={960}
+              loading="eager"
+              decoding="async"
+              className="w-full object-cover lg:max-h-[380px]"
+            />
           </div>
         </section>
 

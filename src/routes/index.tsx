@@ -102,12 +102,13 @@ function Home() {
                   width={1408}
                   height={1104}
                   decoding="async"
-                  className="hero-fade-b h-40 w-full rounded-sm object-cover opacity-70"
+                  className="hero-fade-b h-56 w-full rounded-sm object-cover opacity-60"
                 />
-                <div className="absolute inset-x-0 bottom-[-8px]">
+                <div className="absolute inset-x-2 bottom-[-6px]">
                   <Van />
                 </div>
               </div>
+
 
               <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-3 border-t border-line pt-5 lg:mt-7 lg:grid-cols-4">
                 {[

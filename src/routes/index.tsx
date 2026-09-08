@@ -10,6 +10,7 @@ import photoEngineer from "@/assets/photo-boiler-engineer.jpg";
 import photoPipework from "@/assets/photo-pipework.jpg";
 import photoRadiator from "@/assets/photo-radiator.jpg";
 import photoBoiler from "@/assets/photo-boiler-fitted.jpg";
+import photoStreet from "@/assets/photo-hero-street.jpg";
 import { areas, business, faqSchema, faqs, localBusinessSchema, services } from "@/lib/business";
 
 const title = "Emergency Plumber Cardiff | Boiler Repair & Heating | DMK Plumbing";
@@ -47,12 +48,12 @@ const problems = [
 ];
 
 const btnPrimary =
-  "inline-flex items-center justify-center bg-accent px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-ink uppercase transition-colors hover:bg-accent-deep";
+  "inline-flex items-center justify-center rounded-sm bg-accent px-6 py-4 font-display text-[17px] font-semibold tracking-[0.05em] text-ink uppercase shadow-[0_6px_18px_-10px_rgba(230,184,0,0.9)] transition-colors hover:bg-accent-deep";
 const btnDark =
-  "inline-flex items-center justify-center bg-ink px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-paper uppercase transition-colors hover:bg-ink-2";
+  "inline-flex items-center justify-center rounded-sm bg-ink px-6 py-4 font-display text-[17px] font-semibold tracking-[0.05em] text-paper uppercase transition-colors hover:bg-ink-2";
 const btnOutline =
-  "inline-flex items-center justify-center border border-ink px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-ink uppercase transition-colors hover:bg-ink hover:text-paper";
-const kicker = "font-mono text-[15px] tracking-[0.22em] text-muted uppercase";
+  "inline-flex items-center justify-center rounded-sm border border-ink/25 px-6 py-4 font-display text-[17px] font-semibold tracking-[0.05em] text-ink uppercase transition-colors hover:bg-ink hover:text-paper";
+const kicker = "font-mono text-[15px] tracking-[0.16em] text-muted uppercase";
 
 function Home() {
   const featured = services[0]!;

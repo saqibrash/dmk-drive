@@ -3,23 +3,23 @@
 @import "tw-animate-css";
 
 @theme {
-  --color-paper: #05161c;
-  --color-paper-2: #071c23;
-  --color-ink: #e9f4f4;
-  --color-muted: #8fb0b4;
-  --color-line: #1d3b42;
-  --color-panel: #0a222a;
-  --color-brand: #2ba6e8;
-  --color-brand-deep: #0f6ea6;
-  --color-accent: #ffe100;
-  --color-flame: #ff3b30;
-  --color-wa: #25d366;
+  --color-paper: #ffffff;
+  --color-paper-2: #f7f7f4;
+  --color-panel: #f2f2ee;
+  --color-ink: #101010;
+  --color-ink-2: #1c1c1c;
+  --color-muted: #5c5c58;
+  --color-line: #e3e3dc;
+  --color-brand: #101010;
+  --color-accent: #ffd400;
+  --color-accent-deep: #e0b800;
+  --color-wa: #1faf54;
 
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Oswald", "Arial Narrow", ui-sans-serif, sans-serif;
+  --font-body: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Barlow Condensed", ui-sans-serif, sans-serif;
 
-  --ease-signal: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-signal: cubic-bezier(0.22, 0.68, 0, 1);
 }
 
 @theme inline {
@@ -30,38 +30,51 @@
 
 @keyframes vanIn {
   0% {
-    transform: translateX(-130%);
-    opacity: 0;
-  }
-  14% {
-    opacity: 1;
+    transform: translateX(-118%);
   }
   100% {
     transform: translateX(0);
-    opacity: 1;
+  }
+}
+@keyframes vanBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-2px);
+  }
+  60% {
+    transform: translateY(1.5px);
   }
 }
 @keyframes wheelSpin {
   to {
-    transform: rotate(360deg);
+    transform: rotate(1080deg);
   }
 }
-@keyframes beam {
+@keyframes lampOn {
   0%,
-  100% {
-    opacity: 0.5;
+  60% {
+    opacity: 0;
   }
-  50% {
-    opacity: 0.95;
+  100% {
+    opacity: 1;
   }
 }
-@keyframes aur {
-  0%,
-  100% {
-    background-position: 0% 30%;
+@keyframes pinDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.8);
   }
-  50% {
-    background-position: 100% 70%;
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes roadDash {
+  to {
+    background-position-x: -160px;
   }
 }
 @keyframes marq {
@@ -71,45 +84,61 @@
 }
 
 @utility van-drive {
-  animation: vanIn 1.7s var(--ease-signal) both;
+  animation: vanIn 2s var(--ease-signal) both;
+}
+@utility van-bob {
+  animation: vanBob 0.55s ease-in-out 4;
 }
 @utility wheel-spin {
   transform-box: fill-box;
   transform-origin: center;
-  animation: wheelSpin 1.7s linear both;
+  animation: wheelSpin 2s var(--ease-signal) both;
 }
-@utility beam-pulse {
-  animation: beam 3s ease-in-out infinite;
+@utility lamp-on {
+  animation: lampOn 2.4s ease-out both;
+}
+@utility pin-drop {
+  animation: pinDrop 0.5s var(--ease-signal) 1.9s both;
+}
+@utility road-move {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-ink) 0 34px,
+    transparent 34px 80px
+  );
+  background-size: 80px 2px;
+  background-repeat: repeat-x;
+  animation: roadDash 1.4s linear 8;
 }
 @utility marq {
-  animation: marq 30s linear infinite;
+  animation: marq 34s linear infinite;
 }
-@utility aurora {
-  background-image:
-    radial-gradient(
-      120% 90% at 78% 0%,
-      color-mix(in srgb, var(--color-brand) 22%, transparent) 0%,
-      transparent 55%
-    ),
-    radial-gradient(
-      80% 60% at 8% 100%,
-      color-mix(in srgb, var(--color-accent) 10%, transparent) 0%,
-      transparent 50%
-    );
-  background-size: 200% 200%;
-  animation: aur 14s ease-in-out infinite;
-}
-@utility glass {
-  background: color-mix(in srgb, var(--color-panel) 62%, transparent);
-  backdrop-filter: blur(14px) saturate(1.2);
+
+@utility rule-link {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px;
+    width: 100%;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s var(--ease-signal);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 @utility reveal {
   opacity: 0;
-  transform: translateY(22px);
+  transform: translateY(16px);
   transition:
-    opacity 0.6s var(--ease-signal),
-    transform 0.6s var(--ease-signal);
+    opacity 0.7s var(--ease-signal),
+    transform 0.7s var(--ease-signal);
   &[data-shown="true"] {
     opacity: 1;
     transform: none;
@@ -129,11 +158,25 @@
     background-color: var(--color-paper);
     color: var(--color-ink);
     font-family: var(--font-body);
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
   }
 
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-ink);
+  }
+
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-ink);
     outline-offset: 2px;
   }
 

@@ -4,6 +4,7 @@ import { Footer } from "@/components/site/Footer";
 import { MobileCTABar } from "@/components/site/MobileCTABar";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
+import heroPhoto from "@/assets/photo-boiler-engineer.jpg";
 import { areas, business, services } from "@/lib/business";
 
 export const Route = createFileRoute("/services/$slug")({
@@ -52,51 +53,62 @@ function ServicePage() {
       <Header />
 
       <main>
-        <section className="aurora relative">
-          <div className="mx-auto max-w-6xl px-4 pt-10 pb-8">
-            <p className="font-mono text-[10px] tracking-[0.16em] text-muted uppercase">
-              {service.n} · Cardiff &amp; surrounding areas
-            </p>
-            <h1 className="mt-3 max-w-[18ch] font-display text-[34px] leading-[1.03] font-bold tracking-tight md:text-[52px]">
-              {service.h1}
-            </h1>
-            <p className="mt-4 max-w-[52ch] text-[15px] text-muted md:text-[17px]">{service.intro}</p>
-            <div className="mt-6 grid max-w-lg grid-cols-2 gap-2">
-              <a
-                href={business.phoneHref}
-                className="col-span-2 rounded-xl bg-accent px-4 py-3.5 text-center font-display text-[15px] font-bold text-paper ring-1 ring-black/5"
-              >
-                CALL NOW — {business.phoneDisplay}
-              </a>
-              <a
-                href={business.whatsapp}
-                className="flex items-center justify-center gap-2 rounded-xl bg-wa/15 px-4 py-3 text-[14px] font-medium ring-1 ring-wa/40"
-              >
-                <span className="size-2 rounded-full bg-wa" aria-hidden="true" />
-                WhatsApp Us
-              </a>
-              <a
-                href="#quote"
-                className="flex items-center justify-center rounded-xl border border-line bg-panel/50 px-4 py-3 text-[14px] font-medium"
-              >
-                Get a Quote
-              </a>
+        <section className="relative border-b border-line">
+          <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 pt-10 pb-10 md:px-6 lg:grid-cols-[1.1fr_1fr]">
+            <div>
+              <p className="font-mono text-[15px] tracking-[0.22em] text-muted uppercase">
+                {service.n} · Cardiff &amp; surrounding areas
+              </p>
+              <h1 className="mt-3 max-w-[18ch] font-display text-[36px] leading-[1.05] font-semibold md:text-[52px]">
+                {service.h1}
+              </h1>
+              <div className="mt-4 h-1 w-20 bg-accent" aria-hidden="true" />
+              <p className="mt-5 max-w-[50ch] text-[17px] leading-relaxed text-muted">{service.intro}</p>
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                <a
+                  href={business.phoneHref}
+                  className="inline-flex items-center justify-center bg-accent px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-ink uppercase hover:bg-accent-deep"
+                >
+                  Call now — {business.phoneDisplay}
+                </a>
+                <a
+                  href={business.whatsapp}
+                  className="inline-flex items-center justify-center bg-ink px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-paper uppercase"
+                >
+                  WhatsApp us
+                </a>
+                <a
+                  href="#quote"
+                  className="inline-flex items-center justify-center border border-ink px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-ink uppercase hover:bg-ink hover:text-paper"
+                >
+                  Request a quote
+                </a>
+              </div>
             </div>
+            <img
+              src={heroPhoto}
+              alt={`${service.title} in Cardiff by DMK Plumbing & Heating`}
+              width={1280}
+              height={960}
+              loading="eager"
+              decoding="async"
+              className="w-full object-cover lg:max-h-[380px]"
+            />
           </div>
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-8">
-          <Reveal className="glass rounded-2xl p-5 ring-1 ring-line/70 md:p-8">
+          <Reveal className="border border-line bg-paper-2 p-5 md:p-8">
             <h2 className="font-display text-[20px] font-bold tracking-tight md:text-[26px]">What we cover</h2>
             <ul className="mt-4 grid gap-2 md:grid-cols-2">
               {service.points.map((p) => (
-                <li key={p} className="flex items-start gap-2 text-[14px]">
-                  <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
+                <li key={p} className="flex items-start gap-2 text-[16px]">
+                  <span className="mt-1.5 size-1.5 shrink-0 bg-accent" aria-hidden="true" />
                   {p}
                 </li>
               ))}
             </ul>
-            <p className="mt-5 max-w-[62ch] text-[14px] text-muted">{service.body}</p>
+            <p className="mt-5 max-w-[62ch] text-[16px] text-muted">{service.body}</p>
           </Reveal>
         </section>
 
@@ -106,11 +118,11 @@ function ServicePage() {
               <h2 className="font-display text-[24px] font-bold tracking-tight md:text-[30px]">
                 Get a quick quote
               </h2>
-              <p className="mt-2 max-w-[42ch] text-[14px] text-muted">
+              <p className="mt-2 max-w-[42ch] text-[16px] text-muted">
                 Five short questions. We come back to you with a clear price and the next available slot.
               </p>
             </Reveal>
-            <Reveal delay={80} className="glass rounded-2xl p-5 ring-1 ring-line/70">
+            <Reveal delay={80} className="border border-line bg-paper-2 p-5">
               <QuoteForm />
             </Reveal>
           </div>
@@ -124,11 +136,11 @@ function ServicePage() {
                 key={s.slug}
                 to="/services/$slug"
                 params={{ slug: s.slug }}
-                className="glass rounded-xl p-4 ring-1 ring-line/70 transition-transform duration-300 hover:-translate-y-1"
+                className="border border-line bg-paper-2 p-4 transition-transform duration-300 hover:-translate-y-1"
               >
-                <p className="font-mono text-[9px] text-brand">{s.n}</p>
-                <p className="mt-2 font-display text-[15px] font-bold">{s.title}</p>
-                <p className="mt-1 text-[12px] text-muted">{s.short}</p>
+                <p className="font-mono text-[13px] text-muted">{s.n}</p>
+                <p className="mt-2 font-display text-[17px] font-bold">{s.title}</p>
+                <p className="mt-1 text-[15px] text-muted">{s.short}</p>
               </Link>
             ))}
           </div>

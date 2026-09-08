@@ -104,12 +104,12 @@ function LegalPage() {
       <Header />
       <main className="mx-auto max-w-3xl px-4 py-12">
         <h1 className="font-display text-[32px] font-bold tracking-tight md:text-[44px]">{page.title}</h1>
-        <p className="mt-3 text-[15px] text-muted">{page.description}</p>
+        <p className="mt-3 text-[17px] text-muted">{page.description}</p>
         <div className="mt-8 grid gap-6">
           {page.sections.map((s) => (
             <section key={s.h}>
               <h2 className="font-display text-[18px] font-bold tracking-tight">{s.h}</h2>
-              <p className="mt-2 text-[14px] leading-relaxed text-muted">{s.p}</p>
+              <p className="mt-2 text-[16px] leading-relaxed text-muted">{s.p}</p>
             </section>
           ))}
         </div>

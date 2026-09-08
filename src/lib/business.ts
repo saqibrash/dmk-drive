@@ -13,14 +13,11 @@ export type NavItem = { label: string; to: string };
 
 export const navItems: NavItem[] = [
   { label: "Home", to: "/" },
-  { label: "Emergency Plumbing", to: "/services/emergency-plumbing" },
-  { label: "Boiler Repairs", to: "/services/boiler-repairs" },
-  { label: "Boiler Servicing", to: "/services/boiler-servicing" },
-  { label: "Boiler Installation", to: "/services/boiler-installation" },
+  { label: "Emergency", to: "/services/emergency-plumbing" },
+  { label: "Boilers", to: "/services/boiler-repairs" },
   { label: "Heating", to: "/services/central-heating" },
-  { label: "Gas Safety", to: "/services/gas-safety-certificates" },
   { label: "Landlords", to: "/services/landlord-services" },
-  { label: "Areas We Cover", to: "/areas-we-cover" },
+  { label: "Areas", to: "/areas-we-cover" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];

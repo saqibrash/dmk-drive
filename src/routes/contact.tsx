@@ -4,7 +4,7 @@ import { Footer } from "@/components/site/Footer";
 import { MobileCTABar } from "@/components/site/MobileCTABar";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
-import { business } from "@/lib/business";
+import { areas, business } from "@/lib/business";
 
 const title = "Contact DMK Plumbing & Heating Cardiff | 07868 470 791";
 const description =
@@ -30,50 +30,87 @@ function ContactPage() {
     <div className="min-h-screen overflow-x-hidden">
       <Header />
       <main>
-        <section className="aurora relative">
-          <div className="mx-auto max-w-6xl px-4 pt-10 pb-8">
-            <p className="font-mono text-[10px] tracking-[0.16em] text-muted uppercase">Get in touch</p>
-            <h1 className="mt-3 max-w-[18ch] font-display text-[34px] leading-[1.03] font-bold tracking-tight md:text-[52px]">
+        <section className="border-b border-line bg-ink text-paper">
+          <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+            <p className="font-mono text-[15px] tracking-[0.22em] text-accent uppercase">Get in touch</p>
+            <h1 className="mt-3 max-w-[16ch] font-display text-[36px] leading-[1.05] font-semibold md:text-[52px]">
               Contact DMK Plumbing &amp; Heating
             </h1>
-            <p className="mt-4 max-w-[50ch] text-[15px] text-muted">
-              Fastest way to reach us is a phone call. For anything non-urgent, WhatsApp or the form below is fine.
+            <div className="mt-4 h-1 w-20 bg-accent" aria-hidden="true" />
+            <p className="mt-5 max-w-[52ch] text-[17px] leading-relaxed text-paper/70">
+              The fastest way to reach us is a phone call, day or night. For anything that is not urgent, WhatsApp or
+              the enquiry form works just as well.
             </p>
           </div>
         </section>
 
-        <section id="quote" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-8">
-          <div className="grid gap-6 md:grid-cols-2">
-            <Reveal className="grid content-start gap-2">
+        <section id="quote" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-12 md:px-6 md:py-16">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <Reveal className="content-start">
               <a
                 href={business.phoneHref}
-                className="rounded-xl bg-accent px-4 py-4 text-center font-display text-[16px] font-bold text-paper ring-1 ring-black/5"
+                className="block bg-accent px-6 py-6 text-center font-display text-[24px] font-semibold text-ink md:text-[28px]"
               >
-                Call {business.phoneDisplay}
+                {business.phoneDisplay}
+                <span className="mt-1 block font-mono text-[13px] tracking-[0.2em] uppercase">
+                  24 hour emergency call out
+                </span>
               </a>
               <a
                 href={business.whatsapp}
-                className="flex items-center justify-center gap-2 rounded-xl bg-wa/15 px-4 py-3.5 text-[14px] font-medium ring-1 ring-wa/40"
+                className="mt-2.5 block bg-ink px-6 py-4 text-center font-display text-[17px] font-semibold tracking-[0.06em] text-paper uppercase"
               >
-                <span className="size-2 rounded-full bg-wa" aria-hidden="true" />
-                WhatsApp Us
+                WhatsApp us
               </a>
               <a
                 href={`mailto:${business.email}`}
-                className="rounded-xl border border-line bg-panel/50 px-4 py-3.5 text-center text-[14px] font-medium"
+                className="mt-2.5 block border border-line px-6 py-4 text-center text-[16px] font-medium hover:bg-paper-2"
               >
                 {business.email}
               </a>
-              <p className="mt-2 font-mono text-[11px] text-muted">
-                Serving Cardiff &amp; surrounding areas · Gas Safe registered
-              </p>
+
+              <dl className="mt-8 divide-y divide-line border-y border-line">
+                <div className="flex items-baseline justify-between gap-4 py-3">
+                  <dt className="font-mono text-[14px] tracking-[0.16em] text-muted uppercase">Emergencies</dt>
+                  <dd className="text-[16px] font-medium">24 hours, 7 days</dd>
+                </div>
+                <div className="flex items-baseline justify-between gap-4 py-3">
+                  <dt className="font-mono text-[14px] tracking-[0.16em] text-muted uppercase">Booked work</dt>
+                  <dd className="text-[16px] font-medium">Mon–Sat</dd>
+                </div>
+                <div className="flex items-baseline justify-between gap-4 py-3">
+                  <dt className="font-mono text-[14px] tracking-[0.16em] text-muted uppercase">Based in</dt>
+                  <dd className="text-[16px] font-medium">Cardiff</dd>
+                </div>
+                <div className="flex items-baseline justify-between gap-4 py-3">
+                  <dt className="font-mono text-[14px] tracking-[0.16em] text-muted uppercase">Gas Safe</dt>
+                  <dd className="text-[16px] font-medium">Registered engineers</dd>
+                </div>
+              </dl>
             </Reveal>
-            <Reveal delay={80} className="glass rounded-2xl p-5 ring-1 ring-line/70">
-              <h2 className="font-display text-[18px] font-bold tracking-tight">Send an enquiry</h2>
-              <div className="mt-4">
+
+            <Reveal delay={80} className="border border-line bg-paper-2 p-6 md:p-8">
+              <h2 className="font-display text-[22px] font-semibold md:text-[26px]">Send an enquiry</h2>
+              <p className="mt-2 text-[16px] text-muted">
+                Tell us your postcode and what needs doing. We come back to you with a price and the next available
+                slot.
+              </p>
+              <div className="mt-6">
                 <QuoteForm />
               </div>
             </Reveal>
+          </div>
+        </section>
+
+        <section className="border-t border-line bg-paper-2">
+          <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-12">
+            <p className="font-mono text-[15px] tracking-[0.22em] text-muted uppercase">Where we work</p>
+            <h2 className="mt-3 font-display text-[24px] font-semibold md:text-[30px]">
+              Cardiff and the surrounding areas
+            </h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-muted">
+              {areas.join(" · ")}
+            </p>
           </div>
         </section>
       </main>

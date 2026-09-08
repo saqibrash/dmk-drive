@@ -291,7 +291,7 @@ function Home() {
         </section>
 
         {/* RECENT WORK */}
-        <section className="border-y border-line bg-paper-2 py-14 md:py-20">
+        <section className="cream-wash border-y border-line py-14 md:py-20">
           <div className="mx-auto max-w-6xl px-4 md:px-6">
             <div className="flex flex-wrap items-end justify-between gap-3">
               <h2 className="font-display text-[30px] leading-tight font-semibold md:text-[40px]">
@@ -430,7 +430,7 @@ function Home() {
         </section>
 
         {/* ABOUT */}
-        <section className="border-y border-line bg-paper-2">
+        <section className="warm-wash-soft border-y border-line">
           <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 md:grid-cols-2 md:items-center md:gap-12 md:px-6 md:py-20">
             <img
               src={photoPipework}
@@ -480,13 +480,14 @@ function Home() {
         </section>
 
         {/* FINAL CTA + FORM */}
-        <section id="quote" className="scroll-mt-24 bg-accent">
+        <section id="quote" className="warm-wash scroll-mt-24 border-t border-line">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2 md:px-6 md:py-20">
             <div>
-              <h2 className="max-w-[18ch] font-display text-[32px] leading-tight font-semibold text-ink md:text-[44px]">
+              <span className="inline-block h-[3px] w-10 rounded-full bg-accent" aria-hidden="true" />
+              <h2 className="mt-3 max-w-[18ch] font-display text-[30px] leading-tight font-semibold text-ink md:text-[44px]">
                 Need a plumber or boiler engineer today?
               </h2>
-              <p className="mt-4 max-w-[44ch] text-[17px] text-ink/80">
+              <p className="mt-4 max-w-[44ch] text-[17px] text-ink-2">
                 Speak directly with DMK Plumbing for emergency repairs, boiler work and general plumbing across
                 Cardiff.
               </p>

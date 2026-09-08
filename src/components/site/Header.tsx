@@ -26,7 +26,7 @@ export function Header() {
       </div>
 
       <div
-        className={`warm-wash-soft border-b border-line transition-shadow duration-300 ${
+        className={`nav-wash border-b border-line transition-shadow duration-300 ${
           scrolled ? "shadow-[0_6px_20px_-16px_rgba(23,23,23,0.5)]" : ""
         }`}
       >
@@ -35,7 +35,11 @@ export function Header() {
             scrolled ? "py-2.5" : "py-4"
           }`}
         >
-          <Link to="/" className="shrink-0" aria-label={`${business.name} home`}>
+          <Link
+            to="/"
+            className="logo-backdrop shrink-0 rounded-xl px-3 py-1.5"
+            aria-label={`${business.name} home`}
+          >
             <img
               src={logo}
               alt="DMK Plumbing & Heating logo"
@@ -44,6 +48,7 @@ export function Header() {
               className={`w-auto transition-all duration-300 ${scrolled ? "h-11" : "h-14 md:h-16"}`}
             />
           </Link>
+
 
           <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
             {navItems.map((item) => (
@@ -68,7 +73,7 @@ export function Header() {
             </a>
             <a
               href={business.phoneHref}
-              className="rounded-full border border-accent-deep/40 bg-accent-soft px-5 py-2.5 font-display text-[15px] font-semibold tracking-[0.06em] text-ink uppercase shadow-[0_2px_10px_-4px_rgba(230,184,0,0.6)] transition-all duration-200 hover:bg-accent active:scale-[0.97] md:hidden"
+              className="rounded-xl border border-accent-deep/40 bg-accent-soft px-5 py-2.5 font-display text-[15px] font-semibold tracking-[0.06em] text-ink uppercase shadow-[0_2px_8px_-3px_rgba(23,23,23,0.35)] transition-all duration-200 hover:bg-accent active:scale-[0.97] md:hidden"
             >
               Call
             </a>
@@ -77,7 +82,7 @@ export function Header() {
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
               aria-label="Toggle navigation menu"
-              className="flex size-10 flex-col items-center justify-center gap-1.5 rounded-full bg-panel transition-colors hover:bg-accent-soft lg:hidden"
+              className="flex size-10 flex-col items-center justify-center gap-1.5 rounded-xl border border-accent-deep/25 bg-accent-pale transition-colors hover:bg-accent-soft lg:hidden"
             >
               <span className={`h-0.5 w-5 bg-ink transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
               <span className={`h-0.5 w-5 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />

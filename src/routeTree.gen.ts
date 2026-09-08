@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AreasWeCoverRouteImport } from './routes/areas-we-cover'
 import { Route as LegalSlugRouteImport } from './routes/legal.$slug'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasWeCoverRoute = AreasWeCoverRouteImport.update({
+  id: '/areas-we-cover',
+  path: '/areas-we-cover',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LegalSlugRoute = LegalSlugRouteImport.update({
@@ -31,30 +37,34 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/areas-we-cover': typeof AreasWeCoverRoute
   '/legal/$slug': typeof LegalSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/areas-we-cover': typeof AreasWeCoverRoute
   '/legal/$slug': typeof LegalSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/areas-we-cover': typeof AreasWeCoverRoute
   '/legal/$slug': typeof LegalSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/legal/$slug' | '/services/$slug'
+  fullPaths: '/' | '/areas-we-cover' | '/legal/$slug' | '/services/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/legal/$slug' | '/services/$slug'
-  id: '__root__' | '/' | '/legal/$slug' | '/services/$slug'
+  to: '/' | '/areas-we-cover' | '/legal/$slug' | '/services/$slug'
+  id: '__root__' | '/' | '/areas-we-cover' | '/legal/$slug' | '/services/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AreasWeCoverRoute: typeof AreasWeCoverRoute
   LegalSlugRoute: typeof LegalSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas-we-cover': {
+      id: '/areas-we-cover'
+      path: '/areas-we-cover'
+      fullPath: '/areas-we-cover'
+      preLoaderRoute: typeof AreasWeCoverRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/legal/$slug': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AreasWeCoverRoute: AreasWeCoverRoute,
   LegalSlugRoute: LegalSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
 }

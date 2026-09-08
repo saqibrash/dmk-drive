@@ -10,6 +10,7 @@ import photoEngineer from "@/assets/photo-boiler-engineer.jpg";
 import photoPipework from "@/assets/photo-pipework.jpg";
 import photoRadiator from "@/assets/photo-radiator.jpg";
 import photoBoiler from "@/assets/photo-boiler-fitted.jpg";
+import photoStreet from "@/assets/photo-hero-street.jpg";
 import { areas, business, faqSchema, faqs, localBusinessSchema, services } from "@/lib/business";
 
 const title = "Emergency Plumber Cardiff | Boiler Repair & Heating | DMK Plumbing";
@@ -47,12 +48,12 @@ const problems = [
 ];
 
 const btnPrimary =
-  "inline-flex items-center justify-center bg-accent px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-ink uppercase transition-colors hover:bg-accent-deep";
+  "inline-flex items-center justify-center rounded-sm bg-accent px-6 py-4 font-display text-[17px] font-semibold tracking-[0.05em] text-ink uppercase shadow-[0_6px_18px_-10px_rgba(230,184,0,0.9)] transition-colors hover:bg-accent-deep";
 const btnDark =
-  "inline-flex items-center justify-center bg-ink px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-paper uppercase transition-colors hover:bg-ink-2";
+  "inline-flex items-center justify-center rounded-sm bg-ink px-6 py-4 font-display text-[17px] font-semibold tracking-[0.05em] text-paper uppercase transition-colors hover:bg-ink-2";
 const btnOutline =
-  "inline-flex items-center justify-center border border-ink px-6 py-4 font-display text-[17px] font-semibold tracking-[0.06em] text-ink uppercase transition-colors hover:bg-ink hover:text-paper";
-const kicker = "font-mono text-[15px] tracking-[0.22em] text-muted uppercase";
+  "inline-flex items-center justify-center rounded-sm border border-ink/25 px-6 py-4 font-display text-[17px] font-semibold tracking-[0.05em] text-ink uppercase transition-colors hover:bg-ink hover:text-paper";
+const kicker = "font-mono text-[15px] tracking-[0.16em] text-muted uppercase";
 
 function Home() {
   const featured = services[0]!;
@@ -64,69 +65,103 @@ function Home() {
 
       <main>
         {/* HERO */}
-        <section className="border-b border-line">
-          <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 pt-8 pb-10 md:px-6 lg:grid-cols-[1fr_1.05fr] lg:gap-12 lg:pt-14 lg:pb-16">
+        <section className="warm-wash relative overflow-hidden border-b border-line">
+          {/* photographic environment, faded into the warm background */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[52%] lg:block" aria-hidden="true">
+            <img
+              src={photoStreet}
+              alt=""
+              width={1408}
+              height={1104}
+              decoding="async"
+              className="hero-fade h-full w-full object-cover opacity-[0.55]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#fffdf5] via-[#fffdf5]/35 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#fff9e6] to-transparent" />
+          </div>
+
+          <div className="relative mx-auto grid max-w-6xl gap-8 px-4 pt-7 pb-9 md:px-6 lg:grid-cols-[55fr_45fr] lg:items-center lg:gap-10 lg:pt-14 lg:pb-16">
             <div>
-              <p className={kicker}>Cardiff plumbing &amp; heating</p>
-              <h1 className="mt-3 max-w-[15ch] font-display text-[38px] leading-[1.05] font-semibold md:text-[52px] lg:text-[58px]">
+              <p className="flex items-center gap-2.5 font-mono text-[14px] tracking-[0.14em] text-muted uppercase">
+                <span className="h-[3px] w-7 rounded-full bg-accent" aria-hidden="true" />
+                Cardiff Plumbing &amp; Heating
+              </p>
+              <h1 className="mt-3 max-w-[19ch] font-display text-[30px] leading-[1.12] font-semibold text-ink sm:text-[38px] md:text-[48px] lg:text-[54px] lg:leading-[1.06]">
                 Emergency Plumber &amp; Boiler Engineers in Cardiff
               </h1>
-              <div className="mt-4 h-1 w-20 bg-accent" aria-hidden="true" />
-              <p className="mt-5 max-w-[46ch] text-[17px] leading-relaxed text-muted">
-                Local plumbing, boiler and heating specialists covering Cardiff and the surrounding areas. Fast
-                response, experienced engineers and someone who answers the phone.
+              <p className="mt-4 max-w-[46ch] text-[16px] leading-relaxed text-ink-2 md:text-[17px]">
+                Local plumbing, boiler and heating specialists covering Cardiff and surrounding areas. Fast response
+                from experienced local engineers.
               </p>
 
-              <div className="mt-7 flex flex-wrap gap-2.5">
-                <a href={business.phoneHref} className={btnPrimary}>
-                  Call now — {business.phoneDisplay}
-                </a>
-                <a href={business.whatsapp} className={btnDark}>
-                  WhatsApp us
-                </a>
-                <a href="#quote" className={btnOutline}>
-                  Request a quote
-                </a>
+              {/* mobile hero visual */}
+              <div className="relative mt-6 lg:hidden">
+                <img
+                  src={photoStreet}
+                  alt="Cardiff terraced street where DMK Plumbing & Heating works"
+                  width={1408}
+                  height={1104}
+                  decoding="async"
+                  className="hero-fade-b h-56 w-full rounded-sm object-cover opacity-60"
+                />
+                <div className="absolute inset-x-2 bottom-[-6px]">
+                  <Van />
+                </div>
               </div>
 
-              <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 border-t border-line pt-6 sm:grid-cols-4">
-                {["Gas Safe Registered", "Which? Trusted Trader", `${business.rating} Checkatrade`, "Local Cardiff engineers"].map(
-                  (t) => (
-                    <li key={t} className="flex items-start gap-2 text-[14px] leading-snug">
-                      <span className="mt-1 size-2 shrink-0 bg-accent" aria-hidden="true" />
-                      {t}
-                    </li>
-                  ),
-                )}
+
+              <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-3 border-t border-line pt-5 lg:mt-7 lg:grid-cols-4">
+                {[
+                  ["Gas Safe", "Registered engineers"],
+                  ["Which?", "Trusted Trader"],
+                  [business.rating, `Checkatrade · ${business.reviewCount} reviews`],
+                  ["Cardiff", "Local engineers"],
+                ].map(([t, d]) => (
+                  <li key={t} className="flex items-start gap-2.5">
+                    <span
+                      className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-accent-soft"
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 12 12" className="size-3" fill="none" stroke="#171717" strokeWidth="2">
+                        <path d="M2 6.4 4.6 9 10 3.2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    <span className="leading-tight">
+                      <span className="block font-display text-[16px] font-semibold text-ink">{t}</span>
+                      <span className="block text-[13px] text-muted">{d}</span>
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="lg:pl-4">
+            <div className="relative hidden lg:block">
               <Van />
             </div>
           </div>
         </section>
 
         {/* EMERGENCY STRIP */}
-        <section className="bg-accent">
+        <section className="cream-wash border-b border-line">
           <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-12">
             <div className="grid gap-6 md:grid-cols-[1fr_1.3fr] md:items-center">
               <div>
-                <h2 className="font-display text-[30px] leading-tight font-semibold text-ink md:text-[38px]">
+                <span className="inline-block h-[3px] w-10 rounded-full bg-accent" aria-hidden="true" />
+                <h2 className="mt-3 font-display text-[28px] leading-tight font-semibold text-ink md:text-[38px]">
                   Need an emergency plumber?
                 </h2>
-                <p className="mt-2 max-w-[34ch] text-[16px] text-ink/80">
+                <p className="mt-2 max-w-[34ch] text-[16px] text-ink-2">
                   Call and speak to an engineer, not a call centre.
                 </p>
                 <a href={business.phoneHref} className={`${btnDark} mt-5`}>
                   Call DMK Plumbing now
                 </a>
               </div>
-              <ul className="grid grid-cols-2 gap-x-6 border-t border-ink/20 sm:grid-cols-2">
+              <ul className="grid grid-cols-2 gap-x-6 border-t border-line sm:grid-cols-2">
                 {problems.map((p) => (
                   <li
                     key={p}
-                    className="border-b border-ink/20 py-2.5 font-mono text-[17px] tracking-[0.06em] text-ink uppercase"
+                    className="border-b border-line py-2.5 font-mono text-[17px] tracking-[0.05em] text-ink-2 uppercase"
                   >
                     {p}
                   </li>
@@ -135,6 +170,7 @@ function Home() {
             </div>
           </div>
         </section>
+
 
         {/* FEATURED SERVICE + LIST */}
         <section className="mx-auto max-w-6xl px-4 py-14 md:px-6 md:py-20">
@@ -256,7 +292,7 @@ function Home() {
         </section>
 
         {/* RECENT WORK */}
-        <section className="border-y border-line bg-paper-2 py-14 md:py-20">
+        <section className="cream-wash border-y border-line py-14 md:py-20">
           <div className="mx-auto max-w-6xl px-4 md:px-6">
             <div className="flex flex-wrap items-end justify-between gap-3">
               <h2 className="font-display text-[30px] leading-tight font-semibold md:text-[40px]">
@@ -395,7 +431,7 @@ function Home() {
         </section>
 
         {/* ABOUT */}
-        <section className="border-y border-line bg-paper-2">
+        <section className="warm-wash-soft border-y border-line">
           <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 md:grid-cols-2 md:items-center md:gap-12 md:px-6 md:py-20">
             <img
               src={photoPipework}
@@ -445,13 +481,14 @@ function Home() {
         </section>
 
         {/* FINAL CTA + FORM */}
-        <section id="quote" className="scroll-mt-24 bg-accent">
+        <section id="quote" className="warm-wash scroll-mt-24 border-t border-line">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2 md:px-6 md:py-20">
             <div>
-              <h2 className="max-w-[18ch] font-display text-[32px] leading-tight font-semibold text-ink md:text-[44px]">
+              <span className="inline-block h-[3px] w-10 rounded-full bg-accent" aria-hidden="true" />
+              <h2 className="mt-3 max-w-[18ch] font-display text-[30px] leading-tight font-semibold text-ink md:text-[44px]">
                 Need a plumber or boiler engineer today?
               </h2>
-              <p className="mt-4 max-w-[44ch] text-[17px] text-ink/80">
+              <p className="mt-4 max-w-[44ch] text-[17px] text-ink-2">
                 Speak directly with DMK Plumbing for emergency repairs, boiler work and general plumbing across
                 Cardiff.
               </p>

@@ -4,15 +4,17 @@
 
 @theme {
   --color-paper: #ffffff;
-  --color-paper-2: #f7f7f4;
-  --color-panel: #f2f2ee;
-  --color-ink: #101010;
-  --color-ink-2: #1c1c1c;
-  --color-muted: #5c5c58;
-  --color-line: #e3e3dc;
-  --color-brand: #101010;
+  --color-paper-2: #fffdf5;
+  --color-panel: #fff9e6;
+  --color-ink: #171717;
+  --color-ink-2: #333333;
+  --color-muted: #666666;
+  --color-line: #ece7db;
+  --color-brand: #171717;
   --color-accent: #ffd400;
-  --color-accent-deep: #e0b800;
+  --color-accent-soft: #fff4c2;
+  --color-accent-pale: #fff9e6;
+  --color-accent-deep: #e6b800;
   --color-wa: #1faf54;
 
   --font-display: "Oswald", "Arial Narrow", ui-sans-serif, sans-serif;
@@ -21,6 +23,31 @@
 
   --ease-signal: cubic-bezier(0.22, 0.68, 0, 1);
 }
+
+@utility warm-wash {
+  background-image: linear-gradient(135deg, #ffffff 0%, #fffdf5 55%, #fff5c7 100%);
+}
+@utility warm-wash-soft {
+  background-image: linear-gradient(180deg, #ffffff 0%, #fffdf5 100%);
+}
+@utility cream-wash {
+  background-image: linear-gradient(180deg, #fffdf5 0%, #ffffff 100%);
+}
+@utility hero-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 14%,
+    #000 45%,
+    #000 100%
+  );
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 14%, #000 45%, #000 100%);
+}
+@utility hero-fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
 
 @theme inline {
   --color-background: var(--color-paper);

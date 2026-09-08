@@ -183,7 +183,7 @@
 }
 
 @utility pin-drop {
-  animation: pinDrop 0.5s var(--ease-signal) 1.9s both;
+  animation: pinDrop 0.5s var(--ease-signal) 3s both;
 }
 @utility road-move {
   background-image: repeating-linear-gradient(
@@ -193,7 +193,7 @@
   );
   background-size: 80px 2px;
   background-repeat: repeat-x;
-  animation: roadDash 1.4s linear 8;
+  animation: roadDash 1.4s linear 2;
 }
 @utility marq {
   animation: marq 34s linear infinite;

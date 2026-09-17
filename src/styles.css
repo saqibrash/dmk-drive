@@ -31,14 +31,14 @@
   background-image: linear-gradient(180deg, #ffffff 0%, #fffdf5 100%);
 }
 @utility nav-wash {
-  background-image: linear-gradient(100deg, #f5f4ef 0%, #fff7d6 55%, #ffffff 100%);
+  background-image: linear-gradient(100deg, #121212 0%, #2b2417 44%, #1b1a18 72%, #121212 100%);
 }
 @utility logo-backdrop {
   background-image: radial-gradient(
-    ellipse at 45% 50%,
-    rgba(23, 23, 23, 0.06) 0%,
-    rgba(23, 23, 23, 0.03) 55%,
-    rgba(23, 23, 23, 0) 78%
+    ellipse at 50% 50%,
+    rgba(255, 212, 0, 0.14) 0%,
+    rgba(255, 212, 0, 0.05) 55%,
+    rgba(255, 212, 0, 0) 78%
   );
 }
 @utility cream-wash {
@@ -274,6 +274,11 @@
   :focus-visible {
     outline: 2px solid var(--color-ink);
     outline-offset: 2px;
+  }
+
+  /* the navbar is dark, so the focus ring needs to be light there */
+  header :focus-visible {
+    outline-color: var(--color-accent);
   }
 
   @media (prefers-reduced-motion: reduce) {

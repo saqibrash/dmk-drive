@@ -1,23 +1,31 @@
 import { useState, type FormEvent } from "react";
 import { business, services } from "@/lib/business";
 
-export function QuoteForm({ dark = false }: { dark?: boolean }) {
-  const [sent, setSent] = useState(false);
+const FORMSPREE_URL = "https://formspree.io/f/mdeadqkn";
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+type Status = "idle" | "sending" | "sent" | "error";
+
+export function QuoteForm({ dark = false }: { dark?: boolean }) {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const body = [
-      `Name: ${data.get("name")}`,
-      `Phone: ${data.get("phone")}`,
-      `Postcode: ${data.get("postcode")}`,
-      `Service required: ${data.get("service")}`,
-      `Message: ${data.get("message")}`,
-    ].join("\n");
-    setSent(true);
-    window.location.href = `mailto:${business.email}?subject=${encodeURIComponent(
-      "Website enquiry - DMK Plumbing",
-    )}&body=${encodeURIComponent(body)}`;
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.append("_subject", "Website enquiry - DMK Plumbing");
+    setStatus("sending");
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error("Failed");
+      form.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
   const field = dark
@@ -31,7 +39,7 @@ export function QuoteForm({ dark = false }: { dark?: boolean }) {
         <label htmlFor="qf-name" className={label}>
           Name
         </label>
-        <input id="qf-name" name="name" required autoComplete="name" className={`${field} mt-1`} placeholder="Your name" />
+        <input id="qf-name" name="name" required maxLength={100} autoComplete="name" className={`${field} mt-1`} placeholder="Your name" />
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         <div>
@@ -43,6 +51,7 @@ export function QuoteForm({ dark = false }: { dark?: boolean }) {
             name="phone"
             type="tel"
             required
+            maxLength={30}
             autoComplete="tel"
             className={`${field} mt-1`}
             placeholder="07…"
@@ -56,6 +65,7 @@ export function QuoteForm({ dark = false }: { dark?: boolean }) {
             id="qf-postcode"
             name="postcode"
             required
+            maxLength={10}
             autoComplete="postal-code"
             className={`${field} mt-1`}
             placeholder="CF…"
@@ -85,20 +95,24 @@ export function QuoteForm({ dark = false }: { dark?: boolean }) {
           id="qf-message"
           name="message"
           rows={3}
+          maxLength={1000}
           className={`${field} mt-1`}
           placeholder="What needs doing?"
         />
       </div>
       <button
         type="submit"
-        className="mt-1 bg-accent px-4 py-3.5 font-display text-[17px] font-semibold tracking-[0.06em] text-ink uppercase transition-colors hover:bg-accent-deep"
+        disabled={status === "sending"}
+        className="mt-1 bg-accent px-4 py-3.5 font-display text-[17px] font-semibold tracking-[0.06em] text-ink uppercase transition-colors hover:bg-accent-deep disabled:opacity-60"
       >
-        Request a callback
+        {status === "sending" ? "Sending…" : "Request a callback"}
       </button>
       <p aria-live="polite" className={`font-mono text-[14px] ${dark ? "text-paper/60" : "text-muted"}`}>
-        {sent
-          ? "Opening your email app with the details filled in."
-          : `Need someone now? Call ${business.phoneDisplay}.`}
+        {status === "sent"
+          ? "Thanks — your enquiry has been sent. We will be in touch shortly."
+          : status === "error"
+            ? `Sorry, that did not send. Please call ${business.phoneDisplay}.`
+            : `Need someone now? Call ${business.phoneDisplay}.`}
       </p>
     </form>
   );

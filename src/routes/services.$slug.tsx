@@ -65,7 +65,7 @@ export const Route = createFileRoute("/services/$slug")({
   component: ServicePage,
 });
 
-const trust = ["Gas Safe registered", "Which? Trusted Trader", `${business.rating} on Checkatrade`, "Local Cardiff engineers"];
+const trust = ["Gas Safe registered", "F-Gas registered air conditioning", `${business.reviews} five-star reviews`, "Local Cardiff engineers"];
 
 function PhoneIcon() {
   return (

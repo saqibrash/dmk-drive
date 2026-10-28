@@ -4,9 +4,9 @@ export const business = {
   phoneHref: "tel:+447868470791",
   whatsapp: "https://wa.me/447868470791",
   email: "plumbingdmk@gmail.com",
-  rating: "9.9",
-  reviewCount: 23,
-  strapline: "Emergency plumbing, boilers, heating and Gas Safe services in Cardiff.",
+  reviews: "300+",
+  reviewsLine: "Over 300 five-star reviews across the platforms",
+  strapline: "Emergency plumbing, boilers, heating, air conditioning and Gas Safe services in Cardiff.",
 };
 
 export type NavItem = { label: string; to: string };
@@ -16,6 +16,7 @@ export const navItems: NavItem[] = [
   { label: "Emergency", to: "/services/emergency-plumbing" },
   { label: "Boilers", to: "/services/boiler-repairs" },
   { label: "Heating", to: "/services/central-heating" },
+  { label: "Air Con", to: "/services/air-conditioning-installation" },
   { label: "Landlords", to: "/services/landlord-services" },
   { label: "Areas", to: "/areas-we-cover" },
   { label: "About", to: "/about" },
@@ -210,6 +211,64 @@ export const services: Service[] = [
     ],
     body: "We handle the plumbing side of bathroom projects for homeowners and landlords across Cardiff, working cleanly and tidying up afterwards.",
   },
+  {
+    slug: "air-conditioning-service",
+    n: "10",
+    title: "Air Conditioning Service",
+    short: "Clean, check & re-gas",
+    h1: "Air Conditioning Servicing Cardiff",
+    metaTitle: "Air Conditioning Service Cardiff | F-Gas Engineers | DMK",
+    metaDescription:
+      "Air conditioning servicing in Cardiff by F-Gas registered engineers. Filter and coil cleaning, refrigerant checks and performance testing. Call 07868 470 791.",
+    intro:
+      "A regular service keeps your air conditioning cooling properly, running quietly and breathing clean air, and catches small faults before they become breakdowns.",
+    points: [
+      "Filter and coil cleaning",
+      "Refrigerant level and leak checks",
+      "Condensate drain clearing",
+      "Electrical and performance testing",
+    ],
+    body: "Our F-Gas registered engineers service wall-mounted splits, multi-splits and ducted systems in homes, offices and shops across Cardiff. Most units should be serviced at least once a year, and commercial systems more often.",
+  },
+  {
+    slug: "air-conditioning-installation",
+    n: "11",
+    title: "Air Conditioning Installation",
+    short: "Homes & businesses",
+    h1: "Air Conditioning Installation Cardiff",
+    metaTitle: "Air Conditioning Installation Cardiff | Supply & Fit | DMK",
+    metaDescription:
+      "Air conditioning installation in Cardiff. Wall-mounted split and multi-split systems supplied and fitted by F-Gas registered engineers. Free survey. Call 07868 470 791.",
+    intro:
+      "Cool in summer, efficient heat in winter. We supply and fit air conditioning sized properly for the room, installed neatly and commissioned before we leave.",
+    points: [
+      "Free survey and system sizing",
+      "Wall-mounted split and multi-split systems",
+      "Neat pipe runs and outdoor unit placement",
+      "Commissioning, handover and warranty registration",
+    ],
+    body: "We install air conditioning in bedrooms, living rooms, home offices, conservatories and commercial premises across Cardiff and the surrounding areas, using reliable brands and F-Gas registered engineers for every refrigerant connection.",
+  },
+  {
+    slug: "air-conditioning-repair",
+    n: "12",
+    title: "Air Conditioning Repair",
+    short: "Faults & breakdowns",
+    h1: "Air Conditioning Repair Cardiff",
+    metaTitle: "Air Conditioning Repair Cardiff | Fast AC Fault Finding | DMK",
+    metaDescription:
+      "Air conditioning repair in Cardiff. Units not cooling, leaking water, error codes or noisy fans fixed by F-Gas registered engineers. Call 07868 470 791.",
+    intro:
+      "Air con blowing warm air, dripping water or showing an error code? Our engineers find the fault and get it cooling again.",
+    points: [
+      "Unit not cooling or heating",
+      "Water leaking from the indoor unit",
+      "Error codes and flashing lights",
+      "Noisy fans or compressors",
+      "Refrigerant leaks and re-gassing",
+    ],
+    body: "We repair all the major air conditioning brands across Cardiff. Our F-Gas registered engineers carry common parts and leak detection equipment so most faults are diagnosed on the first visit.",
+  },
 ];
 
 export const emergencies = [
@@ -253,6 +312,10 @@ export const faqs = [
     a: "In most cases yes. We carry common spares so many faults are diagnosed and fixed on the first visit.",
   },
   {
+    q: "Do you install and repair air conditioning?",
+    a: "Yes. Our F-Gas registered engineers install, service and repair air conditioning in homes and businesses across Cardiff and the surrounding areas.",
+  },
+  {
     q: "Which areas do you cover?",
     a: "Cardiff and surrounding areas including Penarth, Barry, Caerphilly, Pontypridd, Dinas Powys, Sully and all Cardiff districts.",
   },
@@ -270,15 +333,9 @@ export const localBusinessSchema = {
   email: business.email,
   url: "/",
   description:
-    "Emergency plumbing, boiler repairs, heating and Gas Safe services in Cardiff and surrounding areas.",
+    "Emergency plumbing, boiler repairs, heating, air conditioning and Gas Safe services in Cardiff and surrounding areas.",
   areaServed: areas.map((a) => ({ "@type": "Place", name: a })),
   address: { "@type": "PostalAddress", addressLocality: "Cardiff", addressCountry: "GB" },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: business.rating,
-    bestRating: "10",
-    reviewCount: business.reviewCount,
-  },
 };
 
 export const faqSchema = {

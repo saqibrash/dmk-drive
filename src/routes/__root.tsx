@@ -82,7 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Emergency plumbing, boiler repairs, heating and Gas Safe services in Cardiff and surrounding areas.",
+          "Emergency plumbing, boiler repairs, heating, air conditioning and Gas Safe services in Cardiff and surrounding areas.",
       },
       { property: "og:site_name", content: "DMK Plumbing & Heating" },
       { property: "og:type", content: "website" },

@@ -7,6 +7,9 @@ import gasSafety from "@/assets/svc-gas-safety.jpg";
 import landlord from "@/assets/svc-landlord.jpg";
 import drainage from "@/assets/svc-drainage.jpg";
 import bathroom from "@/assets/svc-bathroom.jpg";
+import aircon from "@/assets/svc-aircon-install.svg";
+import airconService from "@/assets/svc-aircon-service.svg";
+import airconRepair from "@/assets/svc-aircon-repair.svg";
 
 export type ServiceExtra = {
   image: string;
@@ -162,6 +165,54 @@ export const serviceExtras: Record<string, ServiceExtra> = {
       { q: "Can you fit a new shower?", a: "Yes. We fit mixer and thermostatic showers and replace faulty valves and cartridges." },
       { q: "Do you fix dripping taps and running toilets?", a: "Yes. These are quick jobs and stop wasted water." },
       { q: "Do you do full bathroom fitting?", a: "We handle the plumbing side of bathroom projects, including pipework, waste and fitting sanitaryware." },
+    ],
+  },
+  "air-conditioning-service": {
+    image: airconService,
+    alt: "F-Gas engineer cleaning the filter of a wall-mounted air conditioning unit",
+    lede: "Air conditioning servicing that keeps your system cooling efficiently and the air clean.",
+    pointsTitle: "Included in every service",
+    steps: [
+      { t: "Book a slot", d: "Call, WhatsApp or send the form with the make and number of units." },
+      { t: "Clean and check", d: "Filters, coils and drains are cleaned, and refrigerant and electrics are tested." },
+      { t: "Performance report", d: "We record the readings and tell you about anything that needs attention." },
+    ],
+    faqs: [
+      { q: "How often should air conditioning be serviced?", a: "At least once a year for home systems. Busy commercial systems often need a service every six months." },
+      { q: "Why does my air con smell musty?", a: "Usually dirty filters or a blocked condensate drain. A service cleans both and treats the coil." },
+      { q: "Do you service all brands?", a: "Yes. We service all the major brands, including Daikin, Mitsubishi Electric, Fujitsu, Toshiba, LG and Samsung." },
+    ],
+  },
+  "air-conditioning-installation": {
+    image: aircon,
+    alt: "Wall-mounted air conditioning unit installed above a sofa in a Cardiff living room",
+    lede: "Air conditioning supplied and fitted for homes and businesses, cooling in summer and heating in winter.",
+    pointsTitle: "How we handle your installation",
+    steps: [
+      { t: "Free survey", d: "We measure the room, check where the indoor and outdoor units can go and recommend the right size." },
+      { t: "Clear quote", d: "You get a written quote with the recommended system and the reasons why." },
+      { t: "Fit and commission", d: "F-Gas engineers install, pressure test and commission the system, then show you how to use it." },
+    ],
+    faqs: [
+      { q: "How long does an installation take?", a: "A single wall-mounted split system is usually fitted in a day. Multi-room systems can take longer, and we tell you upfront." },
+      { q: "Can air conditioning heat my home too?", a: "Yes. Most modern split systems are heat pumps and heat efficiently in winter as well as cooling in summer." },
+      { q: "Do I need planning permission?", a: "Usually not for a single outdoor unit on a house, but there are conditions. We check this during the survey." },
+    ],
+  },
+  "air-conditioning-repair": {
+    image: airconRepair,
+    alt: "Engineer connecting refrigerant gauges to an outdoor air conditioning unit",
+    lede: "Air con not cooling, leaking or showing a fault code? F-Gas engineers who find and fix it.",
+    pointsTitle: "Common air conditioning faults we fix",
+    steps: [
+      { t: "Call or WhatsApp", d: "Tell us the make and any error code on the display. A photo on WhatsApp helps." },
+      { t: "Diagnose", d: "We test the electrics, refrigerant pressures and drainage to find the cause." },
+      { t: "Repair and test", d: "With your go-ahead we repair it, then check the system is cooling properly before we leave." },
+    ],
+    faqs: [
+      { q: "Why is my air con blowing warm air?", a: "Common causes are low refrigerant from a leak, a blocked filter or coil, or a failed component outdoors. We test each one." },
+      { q: "Why is water dripping from my indoor unit?", a: "Usually a blocked condensate drain or a unit that is not level. It is normally a quick fix." },
+      { q: "Can you re-gas my air conditioning?", a: "Yes. Our F-Gas registered engineers find and repair the leak first, then re-gas the system to the correct charge." },
     ],
   },
 };

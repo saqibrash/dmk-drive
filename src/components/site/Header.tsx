@@ -19,7 +19,7 @@ export function Header() {
       <div className="hidden bg-ink lg:block">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-1.5">
           <p className="font-mono text-[13px] tracking-[0.14em] text-paper/75 uppercase">
-            Gas Safe registered · Cardiff &amp; surrounding areas
+            Gas Safe &amp; F-Gas registered · Cardiff &amp; surrounding areas
           </p>
           <p className="font-mono text-[13px] tracking-[0.14em] text-accent uppercase">24 hour emergency call out</p>
         </div>
@@ -50,12 +50,12 @@ export function Header() {
           </Link>
 
 
-          <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
+          <nav className="hidden items-center gap-5 xl:flex" aria-label="Main">
             {navItems.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
-                className="rule-link font-mono text-[16px] tracking-[0.05em] text-paper/75 uppercase transition-colors hover:text-accent [&.active]:text-accent"
+                className="rule-link whitespace-nowrap font-mono text-[16px] tracking-[0.05em] text-paper/75 uppercase transition-colors hover:text-accent [&.active]:text-accent"
               >
                 {item.label}
               </Link>
@@ -82,7 +82,7 @@ export function Header() {
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
               aria-label="Toggle navigation menu"
-              className="flex size-10 flex-col items-center justify-center gap-1.5 rounded-xl border border-white/15 bg-white/10 transition-colors hover:bg-white/20 lg:hidden"
+              className="flex size-10 flex-col items-center justify-center gap-1.5 rounded-xl border border-white/15 bg-white/10 transition-colors hover:bg-white/20 xl:hidden"
             >
               <span className={`h-0.5 w-5 bg-paper transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
               <span className={`h-0.5 w-5 bg-paper transition-opacity ${open ? "opacity-0" : ""}`} />
@@ -93,7 +93,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="border-b border-white/10 bg-ink px-4 py-3 lg:hidden" aria-label="Mobile">
+        <nav className="border-b border-white/10 bg-ink px-4 py-3 xl:hidden" aria-label="Mobile">
           <ul className="divide-y divide-white/10">
             {navItems.map((item) => (
               <li key={item.to}>

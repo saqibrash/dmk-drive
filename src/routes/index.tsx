@@ -11,11 +11,12 @@ import photoPipework from "@/assets/photo-pipework.jpg";
 import photoRadiator from "@/assets/photo-radiator.jpg";
 import photoBoiler from "@/assets/photo-boiler-fitted.jpg";
 import photoStreet from "@/assets/photo-hero-street.jpg";
+import photoAircon from "@/assets/svc-aircon-install.svg";
 import { areas, business, faqSchema, faqs, localBusinessSchema, services } from "@/lib/business";
 
-const title = "Emergency Plumber Cardiff | Boiler Repair & Heating | DMK Plumbing";
+const title = "Emergency Plumber Cardiff | Boiler Repair, Heating & Air Con | DMK Plumbing";
 const description =
-  "Emergency plumber and boiler engineers in Cardiff. Gas Safe registered boiler repair, servicing, installation, heating and drainage. Call 07868 470 791.";
+  "Emergency plumber, boiler and air conditioning engineers in Cardiff. Gas Safe and F-Gas registered boiler repair, servicing, installation, heating and air con. Call 07868 470 791.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -113,8 +114,8 @@ function Home() {
               <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-3 border-t border-line pt-5 lg:mt-7 lg:grid-cols-4">
                 {[
                   ["Gas Safe", "Registered engineers"],
-                  ["Which?", "Trusted Trader"],
-                  [business.rating, `Checkatrade · ${business.reviewCount} reviews`],
+                  ["F-Gas", "Registered air conditioning"],
+                  [business.reviews, "Five-star reviews across the platforms"],
                   ["Cardiff", "Local engineers"],
                 ].map(([t, d]) => (
                   <li key={t} className="flex items-start gap-2.5">
@@ -230,22 +231,20 @@ function Home() {
         <section className="bg-ink text-paper">
           <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-4 md:px-6">
             <div>
-              <p className="font-display text-[40px] leading-none font-semibold text-accent">{business.rating}</p>
-              <p className="mt-2 text-[15px] text-paper/70">
-                Checkatrade rating from {business.reviewCount} customer reviews
-              </p>
+              <p className="font-display text-[40px] leading-none font-semibold text-accent">{business.reviews}</p>
+              <p className="mt-2 text-[15px] text-paper/70">Five-star reviews across the platforms</p>
             </div>
             <div>
-              <p className="font-display text-[40px] leading-none font-semibold text-accent">24/7</p>
-              <p className="mt-2 text-[15px] text-paper/70">Emergency call out across Cardiff</p>
+              <p className="font-display text-[40px] leading-none font-semibold text-accent">Qualified</p>
+              <p className="mt-2 text-[15px] text-paper/70">Experienced, qualified engineers on every job</p>
             </div>
             <div>
               <p className="font-display text-[40px] leading-none font-semibold text-accent">Gas Safe</p>
               <p className="mt-2 text-[15px] text-paper/70">All gas work by registered engineers</p>
             </div>
             <div>
-              <p className="font-display text-[40px] leading-none font-semibold text-accent">Which?</p>
-              <p className="mt-2 text-[15px] text-paper/70">Trusted Trader, and a local Cardiff business</p>
+              <p className="font-display text-[40px] leading-none font-semibold text-accent">F-Gas</p>
+              <p className="mt-2 text-[15px] text-paper/70">Registered air-conditioning engineers</p>
             </div>
           </div>
         </section>
@@ -289,6 +288,59 @@ function Home() {
               </Link>
             </div>
           </Reveal>
+        </section>
+
+        {/* AIR CONDITIONING SPLIT */}
+        <section className="border-t border-line bg-paper-2">
+          <div className="mx-auto max-w-6xl px-4 py-14 md:px-6 md:py-20">
+            <Reveal className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-center md:gap-12">
+              <div className="md:order-2">
+                <img
+                  src={photoAircon}
+                  alt="Wall-mounted air conditioning unit installed in a Cardiff living room"
+                  width={1280}
+                  height={960}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full object-cover"
+                />
+              </div>
+              <div>
+                <p className={kicker}>Air conditioning</p>
+                <h2 className="mt-3 font-display text-[30px] leading-tight font-semibold md:text-[40px]">
+                  Air conditioning installation, servicing and repair
+                </h2>
+                <p className="mt-4 max-w-[46ch] text-[16px] leading-relaxed text-muted">
+                  F-Gas registered engineers fitting and looking after air conditioning in homes, offices and shops
+                  across Cardiff. Cooling in summer, efficient heating in winter.
+                </p>
+                <dl className="mt-6 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+                  {[
+                    ["Air con installation", "Split and multi-split systems", "air-conditioning-installation"],
+                    ["Air con servicing", "Clean, check and re-gas", "air-conditioning-service"],
+                    ["Air con repair", "Not cooling, leaks, error codes", "air-conditioning-repair"],
+                    ["F-Gas registered", "Qualified refrigerant engineers", "air-conditioning-service"],
+                  ].map(([t, d, slug]) => (
+                    <div key={t} className="border-l-2 border-accent pl-3">
+                      <dt className="font-display text-[19px] font-semibold">
+                        <Link to="/services/$slug" params={{ slug: slug! }} className="hover:text-accent-deep">
+                          {t}
+                        </Link>
+                      </dt>
+                      <dd className="text-[15px] text-muted">{d}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <Link
+                  to="/services/$slug"
+                  params={{ slug: "air-conditioning-installation" }}
+                  className={`${btnPrimary} mt-7`}
+                >
+                  Book an air con engineer
+                </Link>
+              </div>
+            </Reveal>
+          </div>
         </section>
 
         {/* RECENT WORK */}
@@ -346,17 +398,17 @@ function Home() {
                 ★★★★★
               </p>
               <h2 className="mt-3 font-display text-[30px] leading-tight font-semibold md:text-[40px]">
-                Rated {business.rating} on Checkatrade
+                {business.reviewsLine}
               </h2>
               <p className="mt-4 max-w-[48ch] text-[16px] leading-relaxed text-muted">
-                {business.reviewCount} customer reviews from homes and rental properties across Cardiff and the
-                surrounding areas. Every review is published on our Checkatrade profile — we do not write our own.
+                Five-star reviews from homes and businesses across Cardiff and the surrounding areas, for plumbing,
+                boilers, heating and air conditioning work.
               </p>
             </div>
             <div className="border-l-4 border-accent bg-panel p-6">
-              <p className="font-mono text-[14px] tracking-[0.16em] text-muted uppercase">Score</p>
-              <p className="font-display text-[64px] leading-none font-semibold">{business.rating}</p>
-              <p className="mt-2 text-[15px] text-muted">out of 10 · {business.reviewCount} reviews</p>
+              <p className="font-mono text-[14px] tracking-[0.16em] text-muted uppercase">Five-star reviews</p>
+              <p className="font-display text-[64px] leading-none font-semibold">{business.reviews}</p>
+              <p className="mt-2 text-[15px] text-muted">across the review platforms</p>
             </div>
           </div>
         </section>
@@ -365,13 +417,12 @@ function Home() {
         <section className="bg-ink text-paper">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[1.2fr_0.8fr] md:items-center md:px-6 md:py-20">
             <div>
-              <p className="font-mono text-[15px] tracking-[0.22em] text-accent uppercase">For landlords &amp; agents</p>
-              <h2 className="mt-3 font-display text-[30px] leading-tight font-semibold md:text-[40px]">
-                Landlord plumbing &amp; gas services
+              <h2 className="font-display text-[30px] leading-tight font-semibold md:text-[40px]">
+                Comprehensive services for direct clients
               </h2>
               <p className="mt-4 max-w-[48ch] text-[16px] leading-relaxed text-paper/70">
-                One local team for certificates, servicing and repairs. We arrange access with tenants and send the
-                paperwork over as soon as the job is signed off.
+                One local team for certificates, servicing and repairs. You deal with us directly from booking to
+                sign-off, and the paperwork is sent over as soon as the job is done.
               </p>
               <ul className="mt-6 grid gap-x-8 sm:grid-cols-2">
                 {[

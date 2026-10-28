@@ -126,8 +126,8 @@ function AboutPage() {
                 },
                 {
                   n: "03",
-                  h: "Rated 9.9 on Checkatrade",
-                  p: `${business.reviewCount} customer reviews from homes and rental properties across Cardiff and the surrounding areas.`,
+                  h: `${business.reviews} five-star reviews`,
+                  p: `${business.reviewsLine}, from homes and businesses across Cardiff and the surrounding areas.`,
                 },
               ].map((c, i) => (
                 <Reveal key={c.h} delay={i * 70} className="bg-paper p-6 md:p-8">

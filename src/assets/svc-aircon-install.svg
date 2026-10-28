@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 960">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4efe4"/>
+      <stop offset="1" stop-color="#e7dfcf"/>
+    </linearGradient>
+    <linearGradient id="unit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e9ecef"/>
+    </linearGradient>
+    <linearGradient id="air" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fd3ff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#9fd3ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="window" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cfe6f5"/>
+      <stop offset="1" stop-color="#a9cbe2"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b48a5e"/>
+      <stop offset="1" stop-color="#8f6a45"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="960" fill="url(#wall)"/>
+  <!-- window -->
+  <rect x="860" y="250" width="300" height="420" fill="#ffffff"/>
+  <rect x="876" y="266" width="268" height="388" fill="url(#window)"/>
+  <rect x="1006" y="266" width="8" height="388" fill="#ffffff"/>
+  <rect x="876" y="456" width="268" height="8" fill="#ffffff"/>
+  <path d="M900 640 L960 520 L1010 600 L1060 540 L1130 640 Z" fill="#8fb7d1" opacity="0.6"/>
+  <rect x="840" y="670" width="340" height="18" fill="#ffffff"/>
+  <!-- floor + skirting -->
+  <rect x="0" y="780" width="1280" height="180" fill="url(#floor)"/>
+  <rect x="0" y="766" width="1280" height="16" fill="#ffffff"/>
+  <!-- sofa -->
+  <rect x="120" y="610" width="560" height="170" rx="26" fill="#2b2f33"/>
+  <rect x="140" y="560" width="520" height="110" rx="24" fill="#353a40"/>
+  <rect x="96" y="600" width="70" height="170" rx="22" fill="#24282c"/>
+  <rect x="634" y="600" width="70" height="170" rx="22" fill="#24282c"/>
+  <rect x="210" y="580" width="120" height="80" rx="14" fill="#ffd400"/>
+  <rect x="140" y="780" width="18" height="30" fill="#1b1b1b"/>
+  <rect x="644" y="780" width="18" height="30" fill="#1b1b1b"/>
+  <!-- plant -->
+  <rect x="740" y="690" width="70" height="90" rx="8" fill="#e8e2d6"/>
+  <path d="M775 690 C740 620 700 600 690 560 C730 580 760 620 775 690 Z" fill="#4f7a4a"/>
+  <path d="M775 690 C790 610 830 580 860 560 C845 610 810 650 775 690 Z" fill="#5f8d58"/>
+  <path d="M775 690 C770 620 775 570 790 520 C800 580 795 640 775 690 Z" fill="#456c40"/>
+  <!-- air flow -->
+  <path d="M250 300 Q 420 520 300 640 L 760 640 Q 640 520 790 300 Z" fill="url(#air)"/>
+  <g fill="none" stroke="#7fc1f5" stroke-width="6" stroke-linecap="round" opacity="0.7">
+    <path d="M330 320 q20 40 0 80 q-20 40 0 80"/>
+    <path d="M520 320 q20 40 0 80 q-20 40 0 80 q20 40 0 80"/>
+    <path d="M710 320 q20 40 0 80 q-20 40 0 80"/>
+  </g>
+  <!-- indoor split unit -->
+  <rect x="210" y="170" width="620" height="150" rx="30" fill="#000" opacity="0.08" transform="translate(6 10)"/>
+  <rect x="210" y="170" width="620" height="150" rx="30" fill="url(#unit)"/>
+  <rect x="210" y="268" width="620" height="52" rx="22" fill="#dfe3e7"/>
+  <rect x="250" y="282" width="540" height="20" rx="10" fill="#c3c9cf"/>
+  <rect x="250" y="288" width="540" height="6" rx="3" fill="#a9b0b7"/>
+  <rect x="700" y="210" width="90" height="26" rx="13" fill="#171717"/>
+  <text x="745" y="230" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#7fc1f5" text-anchor="middle">21°</text>
+  <circle cx="676" cy="223" r="6" fill="#1faf54"/>
+  <rect x="250" y="210" width="140" height="10" rx="5" fill="#ffd400"/>
+  <!-- pipe trunking -->
+  <rect x="806" y="250" width="30" height="520" fill="#ffffff" stroke="#e1dbcf" stroke-width="2"/>
+  <!-- remote -->
+  <rect x="470" y="680" width="34" height="80" rx="10" fill="#f5f5f5" transform="rotate(-18 487 720)"/>
+</svg>
